@@ -18,24 +18,24 @@
 
 ### HTML
 
-- [ ] Primer HTML
-- [ ] Secciones
-- [ ] Títulos
-- [ ] Listas
-- [ ] Link
-- [ ] Tablas I
-- [ ] Tablas II
-- [ ] Tablas III
-- [ ] Tablas VI
-- [ ] Comentarios
-- [ ] Formulario
-- [ ] Accesibilidad
-- [ ] Multimedia
+- [x] Primer HTML
+- [x] Secciones
+- [x] Títulos
+- [x] Listas
+- [x] Link
+- [x] Tablas I
+- [x] Tablas II
+- [x] Tablas III
+- [x] Tablas VI
+- [x] Comentarios
+- [x] Formulario
+- [x] Accesibilidad
+- [x] Multimedia
 
 ### CSS
 
-- [ ] Propiedades tipográficas
-- [ ] Incrustado
+- [x] Propiedades tipográficas
+- [x] Incrustado
 - [ ] Estilo con Descendientes
 - [ ] Pseudo Clases
 - [ ] CV
