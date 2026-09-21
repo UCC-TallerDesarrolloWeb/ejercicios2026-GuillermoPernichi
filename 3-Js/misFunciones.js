@@ -1,13 +1,12 @@
 /**
- * Descripción
- * @method Nombre de la función
- * @param Parámetro A
- * @param Parámetro B
- * @return Valor que retorna
+ * Conversión de unidades de metros, pies, yardas y pulgadas
+ * @method convertirUnidades
+ * @param {string} id - Id del elemento input en el html
+ * @param {number} valor - Valor ingresado por el usuario
  */
 function convertirUnidades(id, valor){
     if(isNaN(valor)){
-        alert("Se ingreso un valor incorrecto: " + id)
+        alert("Se ingreso un valor incorrecto: " + id);
         document.getElementById("metro").value = "";
         document.getElementById("pulgada").value = "";
         document.getElementById("pie").value = "";
