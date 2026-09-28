@@ -40,7 +40,7 @@
 - [x] Pseudo Clases
 - [x] CV
 - [x] Backgrounds
-- [ ] Position
+- [x] Position
 - [x] 2 Columnas
 - [x] Grid
 - [x] grid-areas
@@ -66,9 +66,9 @@
 - [x] Carrito de Compras con localstorage
 - [x] Vaciar Carrito y Eliminar Producto
 - [x] Filter
-- [ ] Formatear Precio
-- [ ] Total y Cantidad de Productos
-- [ ] Ordenar el catálogo
+- [x] Formatear Precio
+- [x] Total y Cantidad de Productos
+- [x] Ordenar el catálogo
 
 ## Unidad 4: Funcionamiento del Navegador y Herramientas de Desarrollo
 

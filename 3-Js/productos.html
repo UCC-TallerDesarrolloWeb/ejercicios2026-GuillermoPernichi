@@ -7,13 +7,14 @@
     <script type="text/javascript" src="tienda.js"></script>
 </head>
 
-<body class="grid-container" onload="mostrarCatalogo()">
+<body class="grid-container" onload="mostrarCatalogo();contarProductos()">
     <header class="item1">
         Catálogo de Productos
     </header>
     <nav class="item2">
         <a href="productos.html">Catálogo de Productos</a>
         <a href="carrito.html">Carrito de Compras</a>
+        <div id="cant-prod">0</div>
     </nav>
     <aside class="item3">
         <form name="filter" id="filter">
@@ -57,6 +58,15 @@
                     <input type="checkbox" name="tipo" id="dobok" value="dobok" onchange="filtrarProductos()">
                     <label for="dobok">Dobok</label>
                 </p>
+            </fieldset>
+            <fieldset>
+                <legend>Ordenar Catálogo</legend>
+                <select id="order" onchange="ordenarCatalogo()">
+                    <option value="mayor">por Precio - de Mayor a Menor</option>
+                    <option value="menor">por Precio - de Menor a Mayor</option>
+                    <option value="a-z">por Nombre - de A-Z</option>
+                    <option value="z-a">por Nombre - de Z-A</option>
+                </select>
             </fieldset>
         </form>
     </aside>

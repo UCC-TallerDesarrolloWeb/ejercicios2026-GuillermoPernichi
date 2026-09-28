@@ -88,7 +88,7 @@ mostrarCatalogo = (newList = productos) => {
     contenido += `<div>
                 <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${producto.imagen}" alt="${producto.nombre}">
                 <h3>${producto.nombre}</h3>
-                <p>${producto.precio}</p>
+                <p>${formatPrice(producto.precio)}</p>
                 <button type="button" onclick="mostrarModal(${id})">Ver detalle de Producto</button>
                 <button type="button" onclick="agregarAlCarrito(${id})">Agregar al Carrito</button>
             </div>`;
@@ -111,6 +111,7 @@ agregarAlCarrito = (num) => {
   carritoList.push(num)
   console.log(carritoList);
   localStorage.setItem("carrito", JSON.stringify(carritoList));
+  contarProductos();
 }
 /**
  * Muestra dinámicamente los productos que están en el localstorage
@@ -124,14 +125,29 @@ mostrarCarrito = () => {
     contenido = `<div>Su carrito de compras está vacío</div>`
   } else {
     carritoList = JSON.parse(carritoList);
+    let total = 0;
+    const listProd = [];
+    const listCant = [];
+    carritoList.forEach((num) => {
+      if (!listProd.includes(num)) {
+        listProd.push(num);
+        listCant.push(1);
+      } else {
+        const inx = listProd.indexOf(num);
+        listCant[inx] += 1;
+      }
+    })
     console.log(carritoList);
-    carritoList.forEach((num, id) => {
+    listProd.forEach((num, id) => {
       contenido += `<div>
     <h3>${productos[num].nombre}</h3>
-    <p>${productos[num].precio}</p>
+    <p>${formatPrice(productos[num].precio)}</p>
+    <p>Cantidad: ${listCant[id]}</p>
     <button type="button" onclick="eliminarProducto(${id})">Eliminar Producto</button>
-    </div>`
+    </div>`;
+      total += productos[num].precio * listCant[id];
     });
+    contenido += `Total: ${formatPrice(total)}`;
     contenido += `<button type="button" onclick="vaciarCarrito()">Vaciar Carrito</button>`
   }
   document.getElementById("carrito").innerHTML = contenido;
@@ -191,4 +207,55 @@ let filtrarProductos = () => {
     newLista = newLista.filter((prod) => category.includes(prod.categoria))
   }
   mostrarCatalogo(newLista);
+}
+/**
+ * Formatea el precio $ 35.000,55
+ * @param {number} price 
+ * @returns {number} con formato
+ */
+let formatPrice = (price) => {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS"
+  }).format(price);
+}
+let contarProductos = () => {
+  let carritoList = localStorage.getItem("carrito");
+  carritoList = JSON.parse(carritoList);
+  if (carritoList.length > 0) {
+    document.getElementById("cant-prod").innerText = carritoList.length;
+  }
+}
+let ordenarCatalogo = () => {
+  const opt = document.getElementById("order").value;
+  let newProductos;
+  switch (opt) {
+    case "menor":
+      newProductos = productos.sort((a, b) => a.precio - b.precio);
+      break;
+    case "mayor":
+      newProductos = productos.sort((a, b) => b.precio - a.precio);
+      break;
+    case "a-z":
+      newProductos = productos.sort((a, b) => {
+        if (a.nombre.toLowerCase() < b.nombre.toLowerCase()) {
+          return -1;
+        } else {
+          return 1
+        }
+      })
+      break;
+    case "z-a":
+      newProductos = productos.sort((a, b) => {
+        if (a.nombre.toLowerCase() > b.nombre.toLowerCase()) {
+          return -1;
+        } else {
+          return 1
+        }
+      })
+      break;
+    default:
+      newProductos = productos;
+  }
+  mostrarCatalogo(newProductos);
 }
