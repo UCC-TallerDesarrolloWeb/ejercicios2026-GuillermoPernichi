@@ -83,3 +83,33 @@ function calcularSuma(){
     sum2 = document.getElementById("nums2").value;
     document.getElementById("totalS").innerText = sum1 + Number(sum2);
 }
+/**
+ * Calcula la resta de 2 valores ingresados por el usuario
+ * @method calcularResta
+ */
+function calcularResta(){
+    let res1, res2;
+    res1 = document.getElementById("numr1").value;
+    res2 = document.getElementById("numr2").value;
+    document.getElementById("totalR").innerText = res1 - res2;
+}
+/**
+ * Calcula el producto de 2 valores ingresados por el usuario
+ * @method calcularMultiplicacion
+ */
+function calcularMultiplicacion(){
+    let mult1, mult2;
+    mult1 = document.getElementById("numm1").value;
+    mult2 = document.getElementById("numm2").value;
+    document.getElementById("totalM").innerText = mult1 * mult2;
+}
+/**
+ * Calcula el cociente de 2 valores ingresados por el usuario
+ * @method calcularDivision
+ */
+function calcularDivision(){
+    let div1, div2;
+    div1 = document.getElementById("numd1").value;
+    div2 = document.getElementById("numd2").value;
+    document.getElementById("totalD").innerText = div1 / div2;
+}
