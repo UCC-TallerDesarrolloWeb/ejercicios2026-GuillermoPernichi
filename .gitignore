@@ -1,3 +1,4 @@
 node-module
 *.pdf
 out
+node_ modules
