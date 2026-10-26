@@ -21,7 +21,7 @@ const Activities = () => {
 
 const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 const handleInscribir = (nombreActividad) => {
-    alert('Inscripto en ${nombreActividad}')
+    alert(`Inscripto en ${nombreActividad}`)
 }
 return (
     <div className="activities-container">
