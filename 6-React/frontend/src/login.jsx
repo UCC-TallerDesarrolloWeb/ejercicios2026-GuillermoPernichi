@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../src/styles/login.scss";
 import { useNavigate } from "react-router-dom";
 
-const login = () => {
+const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -10,6 +10,7 @@ const login = () => {
         e.preventDefault();
         if(username == "admin" && password == "admin"){
             console.log("Login OK");
+            localStorage.setItem("isLoggedIn", "true");
             navigate('/actividades');
         }
         else{
@@ -29,4 +30,4 @@ const login = () => {
         </div>
     )
 }
-export default login;
+export default Login;
